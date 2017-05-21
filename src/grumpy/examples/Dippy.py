@@ -7,7 +7,7 @@ import sys
 
 import coinor.pulp as pulp
 from pulp import *
-import dippy
+from . import dippy
 
 try:
     import path
@@ -30,6 +30,6 @@ dippy.Solve(prob, {
     })
 
 for var in prob.variables():
-    print var.name, "=", var.value()
+    print(var.name, "=", var.value())
 
 prob.Tree.display()

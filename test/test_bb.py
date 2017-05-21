@@ -66,6 +66,6 @@ if __name__=='__main__':
         #= test optimal value
         if opt_value!=pre_computed_opt_val[p]:
             raise Exception('Optimality is not acheived for problem %s. BB: %f, OPT: %f ' %(str(p), opt_value[p], pre_computed_opt_val[p]))
-        print '***************************************************'
-        print '* No exceptions raised, BB solutions are correct. *'
-        print '***************************************************'
+        print('***************************************************')
+        print('* No exceptions raised, BB solutions are correct. *')
+        print('***************************************************')

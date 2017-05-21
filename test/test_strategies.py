@@ -146,22 +146,22 @@ if __name__=='__main__':
                 # keep number of LPs solved.
                 num_lp[p][(b,s)] = bt._lp_count
     # print table
-    print 'problem     | branching strategy   | search strategy   | num lp'
-    print '---------------------------------------------------------------'
+    print('problem     | branching strategy   | search strategy   | num lp')
+    print('---------------------------------------------------------------')
     for p in problem:
         for b in branch_strategy:
             for s in search_strategy:
-                print str(p).ljust(10),
-                print '|',
-                print str(b).ljust(20),
-                print '|',
-                print str(s).ljust(17),
-                print '|',
-                print num_lp[p][(b,s)]
+                print(str(p).ljust(10), end=' ')
+                print('|', end=' ')
+                print(str(b).ljust(20), end=' ')
+                print('|', end=' ')
+                print(str(s).ljust(17), end=' ')
+                print('|', end=' ')
+                print(num_lp[p][(b,s)])
     for b in branch_strategy:
         for s in search_strategy:
             filename = bs_dict[b] + "_" + ss_dict[s]
-            print "writing output file ", filename, "..."
+            print("writing output file ", filename, "...")
             f = open(filename, "w")
             f.write("#problem".ljust(15))
             f.write("num lp".ljust(10))

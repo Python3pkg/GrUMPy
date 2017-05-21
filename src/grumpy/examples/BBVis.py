@@ -3,7 +3,7 @@ try:
 except ImportError:
     from src.grumpy import BBTree
 import sys
-import StringIO
+import io
 from PIL import Image as PIL_Image
 
 bt = BBTree()
@@ -21,7 +21,7 @@ for line in file_:
     imagefile.close()
 
 #gnuplot_image = bt.GenerateHistogram()
-gnuplot_image = StringIO.StringIO(bt.GenerateTreeImage())
+gnuplot_image = io.StringIO(bt.GenerateTreeImage())
 #gnuplot_image = bt.GenerateScatterplot()
 #gnuplot_image = bt.GenerateIncumbentPath()
 #gnuplot_image = bt.GenerateForecastImages()

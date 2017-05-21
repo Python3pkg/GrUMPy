@@ -22,7 +22,7 @@ except ImportError:
    try:
       import numpy.core.ma as ma
    except ImportError:
-      print "numpy.ma not found. Install numpy and add to python-path"
+      print("numpy.ma not found. Install numpy and add to python-path")
       raise ImportError
 import Gnuplot, Gnuplot.funcutils
 
@@ -78,7 +78,7 @@ Options
 - Any line starting with a %% or a # is ignored.
 """ % (PROGNAME,PROGNAME,PROGNAME)
 
-    print instructions
+    print(instructions)
     sys.exit(0)
     
 
@@ -125,7 +125,7 @@ def parse_cmdline(arglist):
 					 "xlabel=", "ylabel=", "max-limit=",
 					 "min-limit=", "x-limit="
                                          ])
-    except getopt.error, e:
+    except getopt.error as e:
         commandline_err("%s" % str(e))
 
     if len(files) < 2: usage()
@@ -158,7 +158,7 @@ class MetricsClass:
         self.nsolvs  = len(solvers)
         self.sep     = opts.sep
 
-        map(self.add_solver, solvers)
+        list(map(self.add_solver, solvers))
 
     def add_solver(self, fname):
 
@@ -186,7 +186,7 @@ class MetricsClass:
         # Current num of probs grabbed
         nprobs = len(metrics)
         if not self.nprobs: self.nprobs = nprobs
-        elif self.nprobs <> nprobs:
+        elif self.nprobs != nprobs:
             commandline_error("All files must have same num of problems.")
             
     def prob_mets(self, prob):
@@ -289,7 +289,7 @@ for s in range(nsolvs):
                                  with_=opts.linestyl))
 
 # Create the plot
-apply(g.plot, plotargs)
+g.plot(*plotargs)
 
 # This fixes a Gnuplot bug. (Thanks to Matt Knepley.)
 g.gnuplot.gnuplot.close()
